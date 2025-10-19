@@ -3771,7 +3771,11 @@ FolderDurabilidad:AddButton("Calculate Durability", function()
     end
 end)
 
-local features = window:AddTab("Calculate Stats")
+local features = window:AddTab(Stats OP")
+
+-- ============================================================================
+-- INITIALIZE ALL STATS
+-- ============================================================================
 
 createSessionStats()
 createCurrentStats()
