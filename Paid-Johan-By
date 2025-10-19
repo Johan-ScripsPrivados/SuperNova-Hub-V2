@@ -3774,6 +3774,9 @@ end)
 local features = window:AddTab("Stats OP")
 features:Show()
 
+-- ============================================================================
+-- INITIALIZE ALL STATS OP
+-- ============================================================================
 createSessionStats()
 createCurrentStats()
 
