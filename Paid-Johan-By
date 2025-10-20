@@ -2031,7 +2031,6 @@ end)
 
 
 Killer:AddSwitch("Auto Stromp",function(state)
-elseif SelectedTool == "Stomp" then
                     local stomp = player.Backpack:FindFirstChild("Stomp")
                     if stomp then
                         stomp.Parent = player.Character
