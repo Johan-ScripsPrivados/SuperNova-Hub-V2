@@ -2031,12 +2031,8 @@ end)
 
 
 Killer:AddSwitch("Auto Stromp",function(state)
-    godDamageActive = state
-    if state then
-       task.spawn(function()
-           while godDamageActive do
-               local player = LocalPlayer
-                local stomp = player.Backpack:FindFirstChild("Stomp")
+elseif SelectedTool == "Stomp" then
+                    local stomp = player.Backpack:FindFirstChild("Stomp")
                     if stomp then
                         stomp.Parent = player.Character
                         if stomp:FindFirstChild("attackTime") then
@@ -2054,6 +2050,38 @@ Killer:AddSwitch("Auto Stromp",function(state)
                         virtualUser:CaptureController()
                         virtualUser:ClickButton1(Vector2.new(500, 500))
                     end
+
+                elseif SelectedTool == "Ground Slam" then
+                    local groundSlam = player.Backpack:FindFirstChild("Ground Slam")
+                    if groundSlam then
+                        groundSlam.Parent = player.Character
+                        if groundSlam:FindFirstChild("attackTime") then
+                            groundSlam.attackTime.Value = 0
+                        end
+                    end
+                    player.muscleEvent:FireServer("slam")
+
+                    if player.Character:FindFirstChild("Ground Slam") then
+                        player.Character["Ground Slam"]:Activate()
+                    end
+
+                    if tick() % 6 < 0.1 then
+                        local virtualUser = game:GetService("VirtualUser")
+                        virtualUser:CaptureController()
+                        virtualUser:ClickButton1(Vector2.new(500, 500))
+                    end
+                end
+
+                task.wait()
+            end
+        end)
+    else
+        local player = game:GetService("Players").LocalPlayer
+        if SelectedTool and player.Character:FindFirstChild(SelectedTool) then
+            player.Character:FindFirstChild(SelectedTool).Parent = player.Backpack
+        end
+    end
+end)
 
 
 local button = Killer:AddButton("freeze the water", function()
