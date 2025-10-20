@@ -2031,7 +2031,12 @@ end)
 
 
 Killer:AddSwitch("Auto Stromp",function(state)
-local stomp = player.Backpack:FindFirstChild("Stomp")
+    godDamageActive = state
+    if state then
+       task.spawn(function()
+           while godDamageActive do
+               local player = LocalPlayer
+                local stomp = player.Backpack:FindFirstChild("Stomp")
                     if stomp then
                         stomp.Parent = player.Character
                         if stomp:FindFirstChild("attackTime") then
