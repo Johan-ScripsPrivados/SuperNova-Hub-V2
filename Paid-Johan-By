@@ -2030,6 +2030,27 @@ end)
 
 
 
+Killer:AddSwitch("Auto Stromp",function(state)
+local stomp = player.Backpack:FindFirstChild("Stomp")
+                    if stomp then
+                        stomp.Parent = player.Character
+                        if stomp:FindFirstChild("attackTime") then
+                            stomp.attackTime.Value = 0
+                        end
+                    end
+                    player.muscleEvent:FireServer("stomp")
+
+                    if player.Character:FindFirstChild("Stomp") then
+                        player.Character.Stomp:Activate()
+                    end
+
+                    if tick() % 6 < 0.1 then
+                        local virtualUser = game:GetService("VirtualUser")
+                        virtualUser:CaptureController()
+                        virtualUser:ClickButton1(Vector2.new(500, 500))
+                    end
+
+
 local button = Killer:AddButton("freeze the water", function()
    
     local WalkPart = Instance.new("Part")
