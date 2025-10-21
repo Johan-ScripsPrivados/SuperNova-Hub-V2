@@ -16,7 +16,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafae
 local window = library:AddWindow("🦸🏼‍♂️SuperNova Hub By Johan🦸🏼‍♂️ | - Bienvenido "..display, {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(650, 870),
-    can_resize = false,
+    can_resize = true,
 })
 
 local AutoFarm = window:AddTab("Farm")
